@@ -171,7 +171,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Welcome to your Jupyter Book
+                    Clasificación de Currículums y Extracción de Habilidades con NLP
                 </a>
             </li>
         </ul>
@@ -376,22 +376,31 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metricas-de-evaluacion">Métricas de Evaluación</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proceso-documentado">Proceso Documentado</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-1-distilbert">Modelo 1: DistilBERT</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metricas-de-rendimiento-en-el-conjunto-de-prueba">Métricas de rendimiento en el conjunto de prueba</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-errores">Análisis de errores</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-2-word2vec-bilstm">Modelo 2: Word2Vec + BiLSTM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-2-word2vec-bilstm">Modelo 2: Word2Vec + BiLSTM</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metricas-en-el-conjunto-de-prueba">Métricas en el conjunto de prueba</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Análisis de errores</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-3-cnn-1d-para-texto-con-embeddings-preentrenados">Modelo 3: CNN-1D para texto (con embeddings preentrenados)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Métricas de rendimiento en el conjunto de prueba</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Métricas en el conjunto de prueba</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Análisis de errores</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-4-tf-idf-xgboost-gpu-version">Modelo 4: TF-IDF + XGBoost (GPU version)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Análisis de errores</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Métricas en el conjunto de prueba</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Análisis de errores</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-5-fasttext">Modelo 5: FastText</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-5-fasttext">Modelo 5: FastText</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Métricas en el conjunto de prueba</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Análisis de errores</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -416,9 +425,6 @@ document.write(`
 <li><p><strong>Matriz de Confusión:</strong> visualiza aciertos y errores por clase, identificando patrones de confusión.</p></li>
 <li><p><strong>ROC-AUC (cuando aplica):</strong> evalúa la capacidad discriminativa del modelo en escenarios multiclase.</p></li>
 </ul>
-</section>
-<section id="proceso-documentado">
-<h2>Proceso Documentado<a class="headerlink" href="#proceso-documentado" title="Permalink to this heading">#</a></h2>
 <p>A lo largo del notebook se documenta el flujo completo de cada modelo, incluyendo:</p>
 <ol class="arabic simple">
 <li><p>Entrenamiento y ajuste de hiperparámetros.</p></li>
@@ -1176,7 +1182,7 @@ The model is already on multiple devices. Skipping the move to device specified 
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="s2">&quot;=&quot;</span><span class="o">*</span><span class="mi">70</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;📊 GENERANDO VISUALIZACIONES DEL ENTRENAMIENTO&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; GENERANDO VISUALIZACIONES DEL ENTRENAMIENTO&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="o">*</span><span class="mi">70</span><span class="p">)</span>
 
 <span class="c1"># Extraer historial del trainer (validación)</span>
@@ -1223,7 +1229,7 @@ The model is already on multiple devices. Skipping the move to device specified 
 <span class="n">color_train</span> <span class="o">=</span> <span class="s2">&quot;#9c69c2&quot;</span>  
 <span class="n">color_val</span> <span class="o">=</span> <span class="s2">&quot;#D5C7EF&quot;</span>    
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">📊 Generando gráficas de entrenamiento para DistilBERT...&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> Generando gráficas de entrenamiento para DistilBERT...&quot;</span><span class="p">)</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">patch</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
 
@@ -1895,6 +1901,8 @@ Restoring model weights from the end of the best epoch: 12.
 </div>
 </div>
 <p>El modelo exhibió un claro <strong>sobreajuste</strong>, confirmado por la divergencia de las curvas de rendimiento: mientras que la <strong>Pérdida de Entrenamiento</strong> converge a cero y el <strong>F1-Score de Entrenamiento</strong> se aproxima al 1.00, la <strong>Pérdida de Validación</strong> aumenta sostenidamente después de la época 5, y el <strong>F1-Score de Validación</strong> se estabiliza en un rendimiento subóptimo del 70-72%. A pesar de tener implementado el <strong>Early Stopping</strong>, el entrenamiento se extendió hasta la época 24 de 50. Dado que el mejor rendimiento de generalización se alcanzó visiblemente entre las épocas 5 y 10, la detención tardía indica que el hiperparámetro de <strong>paciencia (patience)</strong>, fijado en 12, es <strong>excesivamente permisivo</strong>. Esto resultó en un <strong>consumo innecesario de recursos computacionales</strong> durante las épocas adicionales sin obtener mejoras significativas, aunque el uso de <code class="docutils literal notranslate"><span class="pre">restore_best_weights=True</span></code> garantiza que se recuperó el modelo con el F1-Score máximo de validación.</p>
+<section id="metricas-en-el-conjunto-de-prueba">
+<h3>Métricas en el conjunto de prueba<a class="headerlink" href="#metricas-en-el-conjunto-de-prueba" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 6. Evaluación en Test</span>
@@ -1986,6 +1994,9 @@ AUC-ROC (macro)          : 0.9584
 </div>
 </div>
 <p>El gráfico valida que el modelo Bi-LSTM tiene una <strong>alta capacidad de discriminación</strong> en general, con un rendimiento casi perfecto en la mayoría de las categorías. Las clases con un AUC ligeramente menor (especialmente la Clase 17) representan las áreas donde la red requiere ajustes de características para mejorar la separación binaria de sus ejemplos.</p>
+</section>
+<section id="id1">
+<h3>Análisis de errores<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">analizar_errores</span><span class="p">(</span>
@@ -2052,6 +2063,7 @@ HEALTHCARE → PUBLIC-RELATIONS: 2 veces (1.9% de errores)
 </div>
 </div>
 <p>El análisis detallado de errores confirma la <strong>Accuracy global de 73.82%</strong> con 105 errores, cuya distribución es altamente heterogénea. Si bien el modelo logra una <strong>clasificación perfecta (100% de Accuracy)</strong> en clases con límites claros como <strong>ACCOUNTANT</strong>, <strong>BPO</strong>, <strong>FINANCE</strong> y <strong>HR</strong>, un grupo de cuatro categorías (<strong>APPAREL</strong> con 20% de Accuracy, <strong>ARTS</strong>, <strong>FITNESS</strong> y <strong>BANKING</strong>) concentra la mayoría de los fallos, arrastrando las métricas <em>macro</em>. Esta debilidad se debe a la dificultad de la Bi-LSTM para distinguir clases con <strong>solapamiento semántico</strong>, como la principal confusión entre <strong>APPAREL y FITNESS</strong>. Para futuras iteraciones, la <strong>estrategia de mejora debe enfocarse prioritariamente en el subconjunto de clases con rendimiento inferior al 50%</strong>, utilizando técnicas como el ajuste de <em>embeddings</em> para fortalecer la separación de características en estas categorías débiles.</p>
+</section>
 </section>
 <section id="modelo-3-cnn-1d-para-texto-con-embeddings-preentrenados">
 <h2>Modelo 3: CNN-1D para texto (con embeddings preentrenados)<a class="headerlink" href="#modelo-3-cnn-1d-para-texto-con-embeddings-preentrenados" title="Permalink to this heading">#</a></h2>
@@ -2994,6 +3006,8 @@ Restoring model weights from the end of the best epoch: 82.
 </div>
 <p>El entrenamiento del modelo <strong>CNN-1D</strong> presenta un comportamiento estable y coherente a lo largo de las épocas. El <strong>train loss</strong> disminuye de forma continua, lo que indica que el modelo está aprendiendo patrones relevantes del corpus. El <strong>Validation Loss</strong> también desciende en las primeras etapas, pero a partir de la <strong>época 40</strong> deja de mejorar significativamente, señalando el inicio del <strong>sobreajuste</strong>. Gracias a las reducciones automáticas del <em>learning rate</em>, la pérdida de validación alcanzó un <strong>mínimo de 0.7142</strong>, mostrando una ligera recuperación y mayor estabilidad hacia el final del entrenamiento.</p>
 <p>En cuanto al <strong>F1-Score ponderado</strong>, se observa un progreso sostenido en ambas curvas. El <strong>F1 ponderado de entrenamiento</strong> aumenta hasta aproximadamente <strong>0.93</strong>, mientras que el <strong>F1 ponderado de validación</strong> se estabiliza alrededor de <strong>0.80–0.85</strong>, lo que evidencia un rendimiento sólido y una adecuada capacidad de generalización, a pesar del leve sobreajuste. La estabilidad de esta métrica confirma que la <strong>CNN-1D</strong> maneja correctamente la variabilidad entre clases y mantiene un buen equilibrio entre aprendizaje y generalización.</p>
+<section id="id2">
+<h3>Métricas en el conjunto de prueba<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
 <p>Calculamos el rendimiento final sobre el conjunto de <em>Test</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3049,8 +3063,6 @@ ROC-AUC (macro)               : 0.9884
 </div>
 </div>
 <p>El modelo <strong>CNN-1D</strong>, seleccionado según el mejor <span class="math notranslate nohighlight">\(F1\)</span>-<span class="math notranslate nohighlight">\(Score_{Weighted}\)</span> en el conjunto de validación, fue evaluado sobre el conjunto de <strong>prueba</strong>, el cual conserva la distribución original y desbalanceada de clases.</p>
-<section id="id1">
-<h3>Métricas de rendimiento en el conjunto de prueba<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Métrica</strong></p></th>
@@ -3131,6 +3143,9 @@ ROC-AUC (macro)               : 0.9884
 <li><p><strong>Puntuaciones Altas:</strong> La mayoría de las clases (10 de 24) alcanzan un <strong>AUC de 1.00</strong>, y la mayoría de las restantes tienen un <strong>AUC entre 0.96 y 0.99</strong>.</p></li>
 <li><p><strong>Conclusión:</strong> Un <strong>ROC-AUC macro de 0.9884</strong> y estas curvas confirman que el modelo <strong>CNN-1D (GloVe)</strong> no solo predice bien, sino que sus representaciones latentes tienen una <strong>separación entre categorías excelente</strong></p></li>
 </ul>
+</section>
+<section id="id3">
+<h3>Análisis de errores<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">analizar_errores</span><span class="p">(</span>
@@ -3395,6 +3410,8 @@ Estos resultados se almacenan en una estructura histórica (<code class="docutil
 </div>
 <p>El modelo <strong>TF-IDF + XGBoost</strong> muestra un aprendizaje efectivo y una regularización adecuada. La <strong>curva de pérdida</strong> indica que la validación loss desciende suavemente hasta la época 3000 y luego converge, activando el Early Stopping en la época 3863, sin signos de sobreajuste extremo. La <strong>curva de F1-Score ponderado</strong> evidencia una ganancia rápida en las primeras 1000 épocas, alcanzando un F1 de ~0.80 en entrenamiento y ~0.73 en validación, con un <strong>gap estable de 6-7%</strong>, señalando un sobreajuste leve a moderado.</p>
 <p>A pesar de este gap, la pérdida de validación no aumenta, lo que sugiere que el modelo generalizó correctamente la estructura principal de los datos. Este comportamiento es común en modelos de alta capacidad como XGBoost cuando se entrenan con muchas iteraciones, incluso usando regularización (<code class="docutils literal notranslate"><span class="pre">reg_alpha=5.0,</span> <span class="pre">reg_lambda=5.0,</span> <span class="pre">subsample</span></code>) y submuestreo, y refleja que parte del sobreajuste se debe a memorizar detalles específicos del conjunto de entrenamiento sin afectar la generalización.</p>
+<section id="id4">
+<h3>Métricas en el conjunto de prueba<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 5. Evaluación en Test</span>
@@ -3508,8 +3525,9 @@ roc_auc_macro: 0.9705
 </div>
 </div>
 <p>Las <strong>curvas ROC-AUC por clase</strong> del modelo <strong>XGBoost</strong> confirman una <strong>capacidad discriminativa alta y consistente</strong> en clasificación multiclase. Con valores de AUC entre <strong>0.87 y 1.00</strong>, el modelo logra separar correctamente las clases en términos probabilísticos, incluso en aquellas con menor precisión en la matriz de confusión. Esto indica que el modelo asigna <strong>probabilidades bien calibradas</strong>, permitiendo distinguir entre clases con alta <strong>sensibilidad</strong> y <strong>especificidad</strong>.</p>
-<section id="id2">
-<h3>Análisis de errores<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="id5">
+<h3>Análisis de errores<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">analizar_errores</span><span class="p">(</span>
@@ -3819,6 +3837,8 @@ F1-Score: 0.7057
 </div>
 </div>
 </div>
+<section id="id6">
+<h3>Métricas en el conjunto de prueba<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
 <p>Se utiliza el vector de etiquetas reales (<code class="docutils literal notranslate"><span class="pre">Y_test</span></code>) y las predicciones (<code class="docutils literal notranslate"><span class="pre">preds_test</span></code>, <code class="docutils literal notranslate"><span class="pre">probs_test_all</span></code>) para calcular el rendimiento final.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3906,6 +3926,9 @@ ROC-AUC (macro)               : 0.9572
 </div>
 </div>
 <p>El modelo FastText mostró una <strong>Precisión global del 68.33%</strong>, limitada por la confusión entre categorías temáticamente similares, como se observa en la matriz. A pesar de esto, las <strong>Curvas ROC</strong> revelaron un <strong>rendimiento individual por clase</strong> notablemente superior: la gran mayoría de las clases alcanzaron un <strong>AUC superior a 0.95</strong>, indicando una fuerte capacidad de discriminación positiva. Este contraste sugiere que el modelo es robusto para la mayoría de las categorías, y su precisión general se ve afectada principalmente fallos específicos en las fronteras de ciertas clases problemáticas.</p>
+</section>
+<section id="id7">
+<h3>Análisis de errores<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">analizar_errores</span><span class="p">(</span>
@@ -3974,6 +3997,7 @@ BUSINESS-DEVELOPMENT → BANKING: 2 veces (1.5% de errores)
 <p>El resumen de errores confirma la <strong>precisión general del 67.33%</strong> del modelo FastText, la cual está marcada por una variabilidad extrema en el rendimiento entre categorías. El modelo es <strong>altamente fiable</strong> en clases como <strong>BPO (100% de precisión)</strong> y <strong>AUTOMOBILE (93.33%)</strong>, pero presenta un desempeño críticamente bajo en <strong>DIGITAL-MEDIA (42.86%)</strong> y <strong>SALES (47.06%)</strong>, junto con otros roles como <strong>ADVOCATE</strong> y <strong>FITNESS</strong> que apenas superan el 50%. Las <strong>confusiones más comunes</strong> detalladas—particularmente <strong>FITNESS → ADVOCATE</strong> y el intercambio entre <strong>ADVOCATE ↔ HEALTHCARE</strong>—validan que la principal debilidad del modelo reside en su incapacidad para discriminar consistentemente entre clases con similitud conceptual, lo que explica la alta tasa de error general pese al buen rendimiento en categorías específicas.</p>
 </section>
 </section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -4040,22 +4064,31 @@ BUSINESS-DEVELOPMENT → BANKING: 2 veces (1.5% de errores)
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metricas-de-evaluacion">Métricas de Evaluación</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proceso-documentado">Proceso Documentado</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-1-distilbert">Modelo 1: DistilBERT</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metricas-de-rendimiento-en-el-conjunto-de-prueba">Métricas de rendimiento en el conjunto de prueba</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-errores">Análisis de errores</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-2-word2vec-bilstm">Modelo 2: Word2Vec + BiLSTM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-2-word2vec-bilstm">Modelo 2: Word2Vec + BiLSTM</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metricas-en-el-conjunto-de-prueba">Métricas en el conjunto de prueba</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Análisis de errores</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-3-cnn-1d-para-texto-con-embeddings-preentrenados">Modelo 3: CNN-1D para texto (con embeddings preentrenados)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Métricas de rendimiento en el conjunto de prueba</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Métricas en el conjunto de prueba</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Análisis de errores</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-4-tf-idf-xgboost-gpu-version">Modelo 4: TF-IDF + XGBoost (GPU version)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Análisis de errores</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Métricas en el conjunto de prueba</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Análisis de errores</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-5-fasttext">Modelo 5: FastText</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-5-fasttext">Modelo 5: FastText</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Métricas en el conjunto de prueba</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Análisis de errores</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

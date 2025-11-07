@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Welcome to your Jupyter Book &#8212; My sample book</title>
+    <title>Clasificación de Currículums y Extracción de Habilidades con NLP &#8212; My sample book</title>
   
   
   
@@ -170,7 +170,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1 current active">
                 <a class="reference internal" href="#">
-                    Welcome to your Jupyter Book
+                    Clasificación de Currículums y Extracción de Habilidades con NLP
                 </a>
             </li>
         </ul>
@@ -351,7 +351,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -362,11 +364,23 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Welcome to your Jupyter Book</h1>
+    <h1>Clasificación de Currículums y Extracción de Habilidades con NLP</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descripcion-general">Descripción General</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivo">Objetivo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparacion-y-procesamiento-de-datos">Preparación y Procesamiento de Datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-implementados">Modelos Implementados</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resultados-y-conclusiones">Resultados y Conclusiones</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -376,13 +390,43 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="welcome-to-your-jupyter-book">
-<h1>Welcome to your Jupyter Book<a class="headerlink" href="#welcome-to-your-jupyter-book" title="Permalink to this heading">#</a></h1>
-<p>This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out <a class="reference external" href="https://jupyterbook.org">the Jupyter Book documentation</a> for more information.</p>
-<p>Check out the content pages bundled with this sample book to see more.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="clasificacion-de-curriculums-y-extraccion-de-habilidades-con-nlp">
+<h1>Clasificación de Currículums y Extracción de Habilidades con NLP<a class="headerlink" href="#clasificacion-de-curriculums-y-extraccion-de-habilidades-con-nlp" title="Permalink to this heading">#</a></h1>
+<section id="descripcion-general">
+<h2>Descripción General<a class="headerlink" href="#descripcion-general" title="Permalink to this heading">#</a></h2>
+<p>Este proyecto aborda la <strong>clasificación de currículums</strong> y la <strong>extracción de habilidades profesionales</strong> utilizando diferentes enfoques de <strong>Procesamiento del Lenguaje Natural (NLP)</strong>.
+Se implementaron modelos basados en <strong>transformers</strong>, <strong>redes neuronales</strong> y <strong>métodos clásicos</strong>, evaluando su rendimiento en un dataset de más de <strong>2.400 currículums</strong> categorizados por área laboral.</p>
+</section>
+<section id="objetivo">
+<h2>Objetivo<a class="headerlink" href="#objetivo" title="Permalink to this heading">#</a></h2>
+<p>Desarrollar y comparar modelos supervisados capaces de identificar la categoría laboral y extraer habilidades relevantes, asegurando una evaluación justa mediante el uso de métricas como <strong>Accuracy</strong>, <strong>Precision</strong>, <strong>Recall</strong> y especialmente <strong>F1-Score ponderado</strong>, que se adoptó como métrica principal por su robustez frente al desbalance de clases.</p>
+</section>
+<section id="preparacion-y-procesamiento-de-datos">
+<h2>Preparación y Procesamiento de Datos<a class="headerlink" href="#preparacion-y-procesamiento-de-datos" title="Permalink to this heading">#</a></h2>
+<p>Antes del entrenamiento, se aplicaron distintas estrategias para <strong>mejorar la calidad y representatividad de los datos</strong>:</p>
+<ul class="simple">
+<li><p><strong>Mitigación de ruido:</strong> limpieza de texto, control de vocabulario y eliminación de términos irrelevantes.</p></li>
+<li><p><strong>Manejo del desbalance de clases:</strong> aumento de datos (data augmentation) en categorías minoritarias usando técnicas de reemplazo y permutación de palabras.</p></li>
+<li><p><strong>División estratificada:</strong> separación rigurosa en conjuntos de entrenamiento, validación y prueba para evitar fugas de información.</p></li>
+<li><p><strong>Vectorización controlada:</strong> tokenización y representación de texto adaptadas a cada tipo de modelo (TF-IDF, embeddings, o tokenización de transformers).</p></li>
+</ul>
+<p>Estas acciones garantizaron un flujo de datos consistente, limpio y libre de sesgos, optimizando el desempeño de los modelos.</p>
+</section>
+<section id="modelos-implementados">
+<h2>Modelos Implementados<a class="headerlink" href="#modelos-implementados" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>DistilBERT / RoBERTa-base (fine-tuned)</strong></p></li>
+<li><p><strong>Word2Vec + BiLSTM</strong></p></li>
+<li><p><strong>CNN-1D</strong></p></li>
+<li><p><strong>TF-IDF + XGBoost (GPU)</strong></p></li>
+<li><p><strong>FastText</strong></p></li>
+</ol>
+</section>
+<section id="resultados-y-conclusiones">
+<h2>Resultados y Conclusiones<a class="headerlink" href="#resultados-y-conclusiones" title="Permalink to this heading">#</a></h2>
+<p>Cada modelo fue entrenado y evaluado bajo el mismo esquema experimental.
+Los resultados evidenciaron diferencias en rendimiento y eficiencia, destacando los modelos <strong>basados en transformers</strong> por su mayor precisión, aunque con mayor costo computacional.
+El análisis demuestra la efectividad del NLP en tareas de <strong>análisis automatizado de currículums</strong>, aportando valor en procesos de <strong>selección y gestión del talento humano</strong>.</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="eda.html"><strong>Análisis exploratorio de Datos</strong></a></li>
@@ -391,6 +435,7 @@ It does not go in-depth into any particular topic - check out <a class="referenc
 <li class="toctree-l1"><a class="reference internal" href="comparaciones.html"><strong>Comparaciones y Conclusiones</strong></a></li>
 </ul>
 </div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -438,6 +483,25 @@ It does not go in-depth into any particular topic - check out <a class="referenc
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descripcion-general">Descripción General</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivo">Objetivo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparacion-y-procesamiento-de-datos">Preparación y Procesamiento de Datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-implementados">Modelos Implementados</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resultados-y-conclusiones">Resultados y Conclusiones</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
